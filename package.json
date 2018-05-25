@@ -4,7 +4,7 @@
   "description": "codigomx test",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test --exit"
+    "test": "DB_NAME=test DB_USER=test DB_PASS='test' mocha test --exit $(find test -name *.test.js)"
   },
   "repository": {
     "type": "git",

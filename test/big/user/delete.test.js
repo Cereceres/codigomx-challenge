@@ -5,14 +5,14 @@ const User = require('../../../models/user.model');
 
 describe('test to get user', () => {
     it('should the return the user saved in db', async() => {
-        await User.create({
-            user_id: '3',
-            username:'test',
+        const user = await User.create({
+            user_id: '6',
+            username:'test-put',
             password:'test',
         });
-        const { body } = await agent.get('/api/user')
-            .query({ user_id:'3' })
+        await agent.delete(`/api/user/${user.id}`)
             .expect(200);
-        assert(body[0].user_id === '3');
+        const userdeleted = await User.find({ user_id: '6' });
+        assert(userdeleted.length === 0);
     });
 });

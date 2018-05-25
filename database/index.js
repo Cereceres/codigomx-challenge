@@ -3,10 +3,9 @@ const sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASS, {
-        host: 'localhost',
+        host: process.env.DB_HOST || 'localhost',
         dialect: 'postgres',
         operatorsAliases: false,
-
         pool: {
             max: 5,
             min: 0,
@@ -19,7 +18,7 @@ const sequelize = new Sequelize(
 module.exports = {
     connect: async() => {
         await sequelize.sync();
-
         return sequelize;
-    }
+    },
+    database: sequelize
 };

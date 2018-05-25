@@ -18,7 +18,7 @@ const postSchema = joi.object().keys({
 const getSchema = joi.object().keys({
     body: joi.object(),
     params: joi.object(),
-    query: joi.object().min(1)
+    query: joi.object()
 });
 
 const putSchema = joi.object().keys({
@@ -29,13 +29,13 @@ const putSchema = joi.object().keys({
         created_at: joi.date(),
     }),
     params: joi.object(),
-    query: joi.object().min(1)
+    query: joi.object()
 });
 
 const deleteSchema = joi.object().keys({
     body: joi.object(),
     params: joi.object(),
-    query: joi.object().min(1)
+    query: joi.object()
 });
 
 

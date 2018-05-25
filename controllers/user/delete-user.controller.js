@@ -7,4 +7,4 @@ module.exports = (req, res, next) => (async() => {
 
     res.json(response);
 })()
-    .catch((error) => res.status(400).send(error));
+    .catch(({ message }) => res.status(400).json({ message }));
