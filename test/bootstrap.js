@@ -8,10 +8,12 @@ const getServer = require('../index');
 before(async() => {
     const server = await getServer();
     global.agent = supertest(server);
-    global.user = await User.create({
+    const user = await User.create({
         username: 'testing',
         password: 'test'
     });
+    await User.update({ user_id: user.id.toString() }, { id:user.id });
+    global.user = user;
     const { body } = await agent.post('/api/auth')
         .send({
             username:'testing',

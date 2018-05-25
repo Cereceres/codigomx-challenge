@@ -6,7 +6,6 @@ const controller = require('../controllers/user');
 const router = express.Router();
 const postSchema = joi.object().keys({
     body: joi.object().keys({
-        user_id: joi.string().required(),
         username: joi.string().required(),
         password: joi.string().required(),
         created_at: joi.date(),
@@ -23,7 +22,6 @@ const getSchema = joi.object().keys({
 
 const putSchema = joi.object().keys({
     body: joi.object().keys({
-        user_id: joi.string(),
         username: joi.string(),
         password: joi.string(),
         created_at: joi.date(),
