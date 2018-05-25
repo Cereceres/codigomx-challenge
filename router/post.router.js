@@ -8,7 +8,6 @@ const postSchema = joi.object().keys({
     body: joi.object().keys({
         post_id: joi.string().required(),
         post_content: joi.string().required(),
-        created_at: joi.date(),
     }),
     params: joi.object(),
     query: joi.object()
@@ -24,7 +23,6 @@ const putSchema = joi.object().keys({
     body: joi.object().keys({
         post_id: joi.string(),
         post_content: joi.string(),
-        created_at: joi.date(),
     }),
     params: joi.object(),
     query: joi.object()
