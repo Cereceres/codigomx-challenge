@@ -9,6 +9,7 @@ describe('test to get response', () => {
         const res = await Post.create({
             post_id:'3000',
             user_id: '1',
+            user_id: user.id,
             post_content:'post_content'
         });
         const { body } = await agent
@@ -16,7 +17,6 @@ describe('test to get response', () => {
             .set({ Authorization: `Bearer ${token}` })
             .send({
                 post_id:'3000',
-                user_id: '2',
                 response_id: '0',
                 response_content:'something here'
             })

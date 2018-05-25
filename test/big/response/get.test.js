@@ -7,8 +7,8 @@ describe('test to get response', () => {
     it('should the return the response saved in db', async() => {
         await Response.create({
             post_id:'3',
-            user_id: '2',
             response_id: '1',
+            user_id: user.id,
             response_content:'something here'
         });
         const { body } = await agent

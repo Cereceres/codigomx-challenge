@@ -9,12 +9,13 @@ describe('test to get response', () => {
         await Post.create({
             post_id:'4444',
             user_id: '1',
+            user_id: user.id,
             post_content:'post_content'
         });
         const response = await Response.create({
             post_id:'4',
-            user_id: '2',
             response_id: '10',
+            user_id: user.id,
             response_content:'something here'
         });
         await agent

@@ -2,8 +2,10 @@ const Response = require('../../models/response.model');
 const Post = require('../../models/post.model');
 
 module.exports = (req, res, next) => (async() => {
-    const query = req.query || req.params.id && { _id:req.params.id } || {};
+    const query = req.params.id ? { id:req.params.id } : req.query;
     const data = req.body || {};
+    query.user_id = req.user.id.toString();
+    data.user_id = req.user.id.toString();
     const { post_id } = data;
     const response = await Response.update(data, query);
 

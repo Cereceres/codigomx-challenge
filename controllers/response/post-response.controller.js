@@ -4,6 +4,7 @@ const Post = require('../../models/post.model');
 
 module.exports = (req, res, next) => (async() => {
     const data = req.body || {};
+    data.user_id = req.user.id.toString();
     const response = await Response.create(data);
     const { post_id } = data;
     const responses_count = await Response.count({ post_id });

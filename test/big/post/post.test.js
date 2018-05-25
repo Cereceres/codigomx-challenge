@@ -10,8 +10,7 @@ describe('test to get post', () => {
             .set({ Authorization: `Bearer ${token}` })
             .send({
                 post_id:'1',
-                user_id: '2',
-                post_content:'something here'
+                post_content:'something here',
             })
             .expect(200);
         assert(body.post_id === '1');

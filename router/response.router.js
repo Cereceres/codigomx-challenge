@@ -7,7 +7,6 @@ const router = express.Router();
 const postSchema = joi.object().keys({
     body: joi.object().keys({
         post_id: joi.string().required(),
-        user_id: joi.string().required(),
         response_id: joi.string().required(),
         response_content: joi.string().required(),
         created_at: joi.date(),
@@ -25,7 +24,6 @@ const getSchema = joi.object().keys({
 const putSchema = joi.object().keys({
     body: joi.object().keys({
         post_id: joi.string(),
-        user_id: joi.string(),
         response_id: joi.string(),
         response_content: joi.string(),
         created_at: joi.date(),

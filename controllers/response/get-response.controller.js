@@ -1,7 +1,7 @@
 const Response = require('../../models/response.model');
 
 module.exports = (req, res, next) => (async() => {
-    const query = req.query || req.params.id && { _id:req.params.id } || {};
+    const query = req.params.id ? { id:req.params.id } : req.query;
 
     const response = await Response.find(query);
 

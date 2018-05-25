@@ -8,7 +8,7 @@ const getServer = require('../index');
 before(async() => {
     const server = await getServer();
     global.agent = supertest(server);
-    await User.create({
+    global.user = await User.create({
         username: 'testing',
         password: 'test'
     });
