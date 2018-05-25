@@ -1,17 +1,22 @@
 const { database } = require('../database');
 const type = require('../database/types');
 
-const Post = database.define('response', {
+const Response = database.define('response', {
     post_id:{
-        type: type.STRING
+        type: type.STRING,
+        unique: true,
+        required: true,
     },
     user_id: {
+        required: true,
         type: type.STRING
     },
     response_id:{
+        required: true,
         type: type.STRING
     },
     response_content:{
+        required: true,
         type: type.STRING
     }
 },
@@ -22,13 +27,14 @@ const Post = database.define('response', {
 });
 
 module.exports = {
-    create: (data) => Post.create(data).then((res) => res.toJSON()),
-    update: (data, query) => Post.update(data, { where: query }),
-    find: (query) => Post.findAll({ where: query })
+    count: (query) => Response.count({ where: query }),
+    create: (data) => Response.create(data).then((res) => res.toJSON()),
+    update: (data, query) => Response.update(data, { where: query }),
+    find: (query) => Response.findAll({ where: query })
         .then((res) => {
             if (res.map) return res.map((result) => result && result.toJSON());
 
             return res.toJSON();
         }),
-    delete: (query) => Post.destroy({ where: query }),
+    delete: (query) => Response.destroy({ where: query }),
 };

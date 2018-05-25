@@ -3,12 +3,16 @@ const type = require('../database/types');
 
 const User = database.define('user', {
     user_id:{
-        type: type.STRING
+        required: true,
+        type: type.STRING,
+        unique: true
     },
     username:{
+        required: true,
         type: type.STRING
     },
     password:{
+        required: true,
         type: type.STRING
     },
 },

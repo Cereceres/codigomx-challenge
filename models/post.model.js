@@ -3,15 +3,20 @@ const type = require('../database/types');
 
 const Post = database.define('post', {
     post_id:{
-        type: type.STRING
+        required: true,
+        type: type.STRING,
+        unique: true
     },
     user_id: {
+        required: true,
         type: type.STRING
     },
     responses_count : {
-        type: type.INTEGER
+        type: type.INTEGER,
+        defaultValue: 0
     },
     post_content:{
+        required: true,
         type: type.STRING
     }
 },
