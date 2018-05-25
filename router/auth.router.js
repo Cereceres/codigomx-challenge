@@ -16,4 +16,4 @@ const authSchema = joi.object().keys({
 
 router.post('/auth', validater(authSchema), controller.post);
 
-module.exports = router;
+module.exports = () => router;

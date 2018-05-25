@@ -16,4 +16,13 @@ describe('test to get user', () => {
         const user = await User.find({ user_id: '4' });
         assert(user[0].user_id === '4');
     });
+
+    it('should the return 400 if password is not sent', async() => {
+        const { body } = await agent.post('/api/user')
+            .send({
+                user_id: '4',
+                username:'test-post',
+            })
+            .expect(400);
+    });
 });

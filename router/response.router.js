@@ -46,4 +46,4 @@ router.post('/response', validater(postSchema), controller.post);
 router.put('/response/:id?', validater(putSchema), controller.put);
 router.delete('/response/:id?', validater(deleteSchema), controller.delete);
 
-module.exports = router;
+module.exports = () => router;

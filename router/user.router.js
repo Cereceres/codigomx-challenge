@@ -44,4 +44,4 @@ router.post('/user', validater(postSchema), controller.post);
 router.put('/user/:id?', validater(putSchema), controller.put);
 router.delete('/user/:id?', validater(deleteSchema), controller.delete);
 
-module.exports = router;
+module.exports = () => router;
