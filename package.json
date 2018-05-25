@@ -1,0 +1,32 @@
+{
+  "name": "codigomx-challenge",
+  "version": "1.0.0",
+  "description": "codigomx test",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cereceres/codigomx-challenge.git"
+  },
+  "keywords": [
+    "test",
+    "codigomx"
+  ],
+  "author": "Jesus Cereceres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cereceres/codigomx-challenge/issues"
+  },
+  "homepage": "https://github.com/Cereceres/codigomx-challenge#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "joi": "^13.3.0",
+    "pg": "^7.4.3",
+    "sequelize": "^4.37.9",
+    "supertest": "^3.1.0",
+    "validater-express-acme": "0.0.1"
+  }
+}
