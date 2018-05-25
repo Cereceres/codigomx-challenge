@@ -11,7 +11,6 @@ describe('test to get response', () => {
             user_id: '1',
             post_content:'post_content'
         });
-        console.log('res ', res);
         const { body } = await agent.post('/api/response')
             .send({
                 post_id:'3000',

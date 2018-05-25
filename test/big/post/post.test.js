@@ -12,7 +12,6 @@ describe('test to get post', () => {
                 post_content:'something here'
             })
             .expect(200);
-        console.log('biody ', body);
         assert(body.post_id === '1');
         const post = await Post.find({ post_id: '1' });
         assert(post[0].post_id === '1');

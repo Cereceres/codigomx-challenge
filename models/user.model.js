@@ -27,7 +27,6 @@ module.exports = {
     update: (data, query) => User.update(data, { where: query }),
     find: (query) => User.findAll({ where: query })
         .then((res) => {
-            console.log('res ', res);
             if (res.map) return res.map((result) => result && result.toJSON());
 
             return res.toJSON();
