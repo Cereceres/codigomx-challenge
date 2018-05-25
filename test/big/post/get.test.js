@@ -12,6 +12,7 @@ describe('test to get post', () => {
         });
         const { body } = await agent.get('/api/post')
             .query({ post_id:'2' })
+            .set({ Authorization: `Bearer ${token}` })
             .expect(200);
         assert(body[0].post_id === '2');
     });

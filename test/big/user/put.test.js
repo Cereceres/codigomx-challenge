@@ -10,7 +10,9 @@ describe('test to get user', () => {
             username:'test-put',
             password:'test',
         });
-        const { body } = await agent.put(`/api/user/${user.id}`)
+        const { body } = await agent
+            .put(`/api/user/${user.id}`)
+            .set({ Authorization: `Bearer ${token}` })
             .send({
                 username:'test-post-updated',
             })

@@ -23,7 +23,10 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "express-unless": "^0.5.0",
     "joi": "^13.3.0",
+    "jsonwebtoken": "^8.2.1",
     "pg": "^7.4.3",
     "sequelize": "^4.37.9",
     "supertest": "^3.1.0",

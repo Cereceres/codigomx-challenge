@@ -6,7 +6,7 @@ const Post = require('../../../models/post.model');
 
 describe('test to get response', () => {
     it('should the return the response saved in db', async() => {
-        const res = await Post.create({
+        await Post.create({
             post_id:'4444',
             user_id: '1',
             post_content:'post_content'
@@ -17,7 +17,9 @@ describe('test to get response', () => {
             response_id: '10',
             response_content:'something here'
         });
-        await agent.put(`/api/response/${response.id}`)
+        await agent
+            .put(`/api/response/${response.id}`)
+            .set({ Authorization: `Bearer ${token}` })
             .send({
                 post_id:'4444',
                 response_content:'something here-updated',

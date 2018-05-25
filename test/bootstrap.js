@@ -8,6 +8,17 @@ const getServer = require('../index');
 before(async() => {
     const server = await getServer();
     global.agent = supertest(server);
+    await User.create({
+        username: 'testing',
+        password: 'test'
+    });
+    const { body } = await agent.post('/api/auth')
+        .send({
+            username:'testing',
+            password:'test',
+        })
+        .expect(200);
+    global.token = body.token;
 });
 
 

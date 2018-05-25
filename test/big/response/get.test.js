@@ -11,7 +11,9 @@ describe('test to get response', () => {
             response_id: '1',
             response_content:'something here'
         });
-        const { body } = await agent.get('/api/response')
+        const { body } = await agent
+            .get('/api/response')
+            .set({ Authorization: `Bearer ${token}` })
             .query({ response_id:'1' })
             .expect(200);
         assert(body[0].response_id === '1');

@@ -23,8 +23,14 @@ const User = database.define('user', {
 });
 
 module.exports = {
-    create: (data) => User.create(data).then((res) => res.toJSON()),
-    update: (data, query) => User.update(data, { where: query }),
+    create: (data) => {
+        if (data.password) data.password = new Buffer(data.password).toString('base64');
+        return User.create(data).then((res) => res.toJSON());
+    },
+    update: (data, query) => {
+        if (data.password) data.password = new Buffer(data.password).toString('base64');
+        return User.update(data, { where: query });
+    },
     find: (query) => User.findAll({ where: query })
         .then((res) => {
             if (res.map) return res.map((result) => result && result.toJSON());

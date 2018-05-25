@@ -12,6 +12,7 @@ describe('test to get user', () => {
         });
         const { body } = await agent.get('/api/user')
             .query({ user_id:'3' })
+            .set({ Authorization: `Bearer ${token}` })
             .expect(200);
         assert(body[0].user_id === '3');
     });

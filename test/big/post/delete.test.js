@@ -11,6 +11,7 @@ describe('test to get post', () => {
             post_content:'something here'
         });
         await agent.delete(`/api/post/${post.id}`)
+            .set({ Authorization: `Bearer ${token}` })
             .expect(200);
         const postdeleted = await Post.find({ post_id: '3' });
         assert(postdeleted.length === 0);

@@ -10,7 +10,9 @@ describe('test to get user', () => {
             username:'test-put',
             password:'test',
         });
-        await agent.delete(`/api/user/${user.id}`)
+        await agent
+            .delete(`/api/user/${user.id}`)
+            .set({ Authorization: `Bearer ${token}` })
             .expect(200);
         const userdeleted = await User.find({ user_id: '6' });
         assert(userdeleted.length === 0);

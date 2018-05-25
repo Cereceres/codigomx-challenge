@@ -5,7 +5,9 @@ const Post = require('../../../models/post.model');
 
 describe('test to get post', () => {
     it('should the return the post saved in db', async() => {
-        const { body } = await agent.post('/api/post')
+        const { body } = await agent
+            .post('/api/post')
+            .set({ Authorization: `Bearer ${token}` })
             .send({
                 post_id:'1',
                 user_id: '2',
